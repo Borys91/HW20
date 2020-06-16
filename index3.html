@@ -6,9 +6,68 @@
    <title>Document</title>
 </head>
 <body>
+   <input type="text" name="" id="number1" placeholder="Введите первое число">
+   <input type="text" name="" id="number2" placeholder="Введите второе число">
+   <input type="text" name="" id="answer"placeholder="Ответ">
+   <input type="button" value="+">
+   <input type="button" value="-">
+   <input type="button" value="*">
+   <input type="button" value="/">
    
    <script>
-
+      let pattern=/[0-9\.]/ // Не понял как сделать , что бы после 1 точки больше не давало их ставить , это через регулярные выражения решается или как то через проверки?
+      let num1=document.getElementById("number1")
+      
+      num1.addEventListener("keypress",function(e){
+         
+         if(!pattern.test(e.key)){
+            e.preventDefault();
+           
+         }
+      })
+      let num2=document.getElementById("number2")
+      num2.addEventListener("keypress",function(e){
+         if(!pattern.test(e.key)){
+            e.preventDefault();
+         
+         }
+      })
+      
+      let ans=document.getElementById("answer")
+      let btns = document.querySelectorAll("input")
+      for(let i = 0 ; i<btns.length;i++){
+         if(btns[i].type!="button"){
+            continue;
+         }
+         if(btns[i].value=="+"){
+         console.dir(btns[i])
+         btns[i].addEventListener("click",function(){
+          ans.value=parseFloat(num1.value)+parseFloat(num2.value);
+            
+         })
+         }
+         if(btns[i].value=="-"){
+         console.dir(btns[i])
+         btns[i].addEventListener("click",function(){
+          ans.value=parseFloat(num1.value)-parseFloat(num2.value);
+            
+         })
+         }
+         if(btns[i].value=="*"){
+         console.dir(btns[i])
+         btns[i].addEventListener("click",function(){
+          ans.value=parseFloat(num1.value)*parseFloat(num2.value);
+            
+         })
+         }
+         if(btns[i].value=="/"){
+         console.dir(btns[i])
+         btns[i].addEventListener("click",function(){
+          ans.value=parseFloat(num1.value)/parseFloat(num2.value);
+            
+         })
+         }
+      }
    </script>
 </body>
 </html>
