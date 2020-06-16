@@ -6,8 +6,17 @@
    <title>Document</title>
 </head>
 <body>
-   
+   <input type="text" >
    <script>
+      let input = document.querySelector("input")
+      let pat=/\d/;
+      input.addEventListener("keypress",function(e){
+         console.log(pat.test(e.key))
+        
+         if(!pat.test(e.key)){
+            e.preventDefault();
+         }
+      })
       
    </script>
 </body>
