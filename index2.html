@@ -19,6 +19,28 @@
    <input type="button" value="Включить обработчик" id="onMove">
    <input type="button" value="Выключить обработчик" id="offMove">
    <div></div>
-   
+   <script>
+      let a = document.querySelector("div")
+      let b = document.getElementById("move")
+      let c = document.getElementById("onMove")
+      let d = document.getElementById("offMove")
+      
+      let moveObj=function(){
+      let leftPos=50+Math.random()*300
+      let topPos=50+Math.random()*300
+      a.style.left=leftPos+"px";
+      a.style.top=topPos+"px";
+      }
+
+      c.addEventListener("click",function(){
+         b.addEventListener("click",moveObj)
+      })
+      
+      let delFunc = function(){
+          b.removeEventListener("click",moveObj)
+       }
+
+       d.addEventListener("click",delFunc)
+      </script>
 </body>
 </html>
